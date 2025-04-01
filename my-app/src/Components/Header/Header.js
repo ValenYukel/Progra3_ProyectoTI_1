@@ -31,7 +31,7 @@ function Header() {
     ]
     return (
         <header>
-            <h1>Vaqueritos</h1>
+            <h1>VAQUERITOS</h1>
             <OpcionesHeader opciones={opciones} />
         </header>
     )

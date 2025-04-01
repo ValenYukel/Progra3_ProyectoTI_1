@@ -3,10 +3,9 @@ import Header from "../../components/Header/Header";
 
 function Home(){
     return(
-    <React.Fragment>
-      <Header />
-      <h2>Categories in database</h2>
-    </React.Fragment>
+    
+      <h2>This is Screen HOME</h2>
+    
     )
 }
 

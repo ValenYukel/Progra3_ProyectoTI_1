@@ -27,6 +27,10 @@ function Header() {
         {
             name:'Women',
             path: '/women'
+        },
+        {
+            name:'Ver Todas',
+            path: '/ver-todas/jewelery'
         }
     ]
     return (

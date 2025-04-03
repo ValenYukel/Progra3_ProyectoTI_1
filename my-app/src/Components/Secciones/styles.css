@@ -1,0 +1,97 @@
+main{
+    min-width: 100%;
+}
+
+.secc{
+    text-align: left;
+    padding: 40px; 
+    margin-top: 20px;
+    font-size: 26px;
+}
+
+#secciones{
+   display: flexbox;
+   padding: 30px;
+}
+
+.productos{
+    display: flexbox;
+ }
+
+
+ .producto_category{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60% 40%;
+    padding: 60px;
+ }
+
+
+
+.remera-hombre{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60% 40%;
+    padding: 60px;
+ }
+
+.remera-mujer{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60% 40%;
+    padding: 60px;
+ }
+
+
+ .accesorios{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60% 40%;
+    padding: 60px;
+ }
+
+
+.descripcion-producto{
+font-size: small;
+max-height: 100%; 
+overflow: hidden;
+}
+ 
+
+.producto_category:hover, .remera-hombre:hover, .remera-mujer:hover, .accesorios:hover{
+    transform: scale(1,1.07);
+    box-shadow: 19px 10px 7px rgba(0,0,0,0.20);
+    transition: all 0.5s;
+ }
+
+
+
+
+#botones{
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+ }
+
+#boton{
+background-color: whitesmoke;
+font-family:"Lato", sans-serif;
+font-style: normal;
+ }
+
+#boton:hover{
+    box-shadow: 0px 20px 15px rgba(0,0,0,0.20);
+    font-weight: bold;
+}
+
+
+.producto_category img,
+.remera-hombre img,
+.remera-mujer img,
+.accesorios img {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover;
+    border-radius: 15px;
+    border: 2px solid black;
+}

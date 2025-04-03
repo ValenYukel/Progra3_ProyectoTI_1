@@ -1,0 +1,39 @@
+#foot{
+    display: flexbox;
+    color: rgb(60, 54, 54);
+    justify-content: center;
+    width: max-content;
+    padding-bottom: 5px;
+
+}
+
+#foot li{
+    list-style: none;
+}
+
+#foot-secc{
+   padding-bottom: 10px;
+}
+
+#footer{
+    color: rgb(51, 47, 47);
+    font-weight: bold;
+    font-size: 10px;
+    margin: 15px;
+}
+
+footer h4{
+    text-align: left;
+    margin: 15px;   
+}
+
+footer{
+    justify-content: center;
+    align-items: center;
+    display: flexbox;
+    background-color: whitesmoke;
+   min-width: 420px;
+    height: fit-content;
+    padding: 23px;
+    margin-top: 60px;
+}

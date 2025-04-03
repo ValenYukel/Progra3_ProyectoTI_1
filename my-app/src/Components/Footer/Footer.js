@@ -1,4 +1,5 @@
 import React from "react";
+import './styles.css'
 
 export default function Footer() {
     return (
@@ -7,4 +8,4 @@ export default function Footer() {
         <p>Yukelson Valentino - Freijomil Maximo - Orchanski Benjamin</p>
       </footer>
     )
-  }
+  };

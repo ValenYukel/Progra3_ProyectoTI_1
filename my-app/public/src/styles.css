@@ -1,0 +1,15 @@
+/* Resets */
+* {
+    box-sizing: border-box;
+}
+html{
+    color: black;
+    text-transform: uppercase;
+    font-family: "Lato", sans-serif;
+    font-style: normal;
+    }
+
+body{
+    background-color: #eeebe6f3;
+    margin: 0;
+}

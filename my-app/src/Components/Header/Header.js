@@ -1,6 +1,7 @@
 import React from "react";
 import OpcionesHeader from "./OpcionesHeader";
-import './styles.css';
+import './styles.css'
+
 
 function Header() {
 
@@ -40,6 +41,6 @@ function Header() {
             <OpcionesHeader opciones={opciones} />
         </header>
     )
-}
+};
 
-export default Header
+export default Header;

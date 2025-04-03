@@ -9,6 +9,6 @@ function OpcionesHeader(props) {
             }
         </ul>
     )
-}
+};
 
 export default OpcionesHeader;

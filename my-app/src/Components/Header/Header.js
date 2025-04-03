@@ -36,10 +36,30 @@ function Header() {
         }
     ]
     return (
+    <>
         <header>
-            <h1>VAQUERITOS</h1>
-            <OpcionesHeader opciones={opciones} />
-        </header>
+<div id="conteiner">
+
+    <div class="titulo">
+        
+    <a href="/"><h1>Vaqueritos</h1></a>
+
+
+<a href="/"><img id="logo" src="/img/cowboy2.jpeg" alt="logo"/></a>
+
+</div>
+
+<div id="barra_nav">
+  <nav id="menu">
+ <OpcionesHeader opciones={opciones}/>
+  </nav>
+</div>
+
+</div> 
+</header>
+
+          
+</>
     )
 };
 

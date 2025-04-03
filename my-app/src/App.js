@@ -10,6 +10,7 @@ function App() {
   return (
     <>
     <React.Fragment>
+    <div class="todo">
     <Header/>
   
     <Switch>
@@ -19,6 +20,7 @@ function App() {
     </Switch>
     
     <Footer />
+    </div>
     </React.Fragment>
     </>
   )

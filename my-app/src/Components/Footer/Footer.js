@@ -58,7 +58,7 @@ export default function Footer() {
 
 <div id="footer">
    <p>El contenido de esta página web está protegido por copyright y es propiedad de VAQUERITOS C.O. & Digital House.</p>
-<h2> DISEÑADO POR: Yukelson Valentino - Freijomil Maximo - Orchanski Benjamin</h2>
+<h2> INTEGRANTES DEL GRUPO: Yukelson Valentino - Freijomil Maximo - Orchanski Benjamin</h2>
   </div>
 
    

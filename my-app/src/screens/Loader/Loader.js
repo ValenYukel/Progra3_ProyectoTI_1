@@ -3,9 +3,9 @@ import React from "react";
 export default function Loader() {
  
     return (
-        <div>
-           <img src='/img/vaquero.gif' alt='Cargando...'/>
-        </div>
-    )
-
-};
+        <div style={{ textAlign: 'center', marginTop: '50px'}}>
+        <img style={{border: '3px solid black'}} src='/img/vaquero.gif' alt='Cargando...' />
+        <p>Cargando...</p>
+      </div>
+    );
+  };

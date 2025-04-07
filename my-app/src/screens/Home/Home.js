@@ -1,6 +1,6 @@
 import React from 'react';
-import SeccionPopulares from '../../Components/SeccionPopulares/SeccionPopulares';
-import SeccionCarteles from '../../Components/SeccionCartel/SeccionCartel';
+import SeccionPopulares from '../../components/SeccionPopulares/SeccionPopulares';
+import SeccionCarteles from '../../components/SeccionCartel/SeccionCartel';
 function Home(){
     return(
     <React.Fragment>   

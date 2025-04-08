@@ -10,7 +10,7 @@ function App() {
   return (
     
     <React.Fragment>
-    <div class="todo">
+    <div className="todo">
   <Header/>
 
     <Switch>

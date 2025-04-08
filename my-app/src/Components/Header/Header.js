@@ -1,6 +1,6 @@
 import React from "react";
 import OpcionesHeader from "./OpcionesHeader";
-import './styles.css'
+import './styles.css';
 
 
 function Header() {
@@ -31,12 +31,14 @@ function Header() {
             path: '/categoria/women%27s%20clothing'
         }
     ]
+
+
     return (
     <>
         <header>
 <div id="conteiner">
 
-    <div class="titulo">
+    <div className="titulo">
         
     <a href="/"><h1>Vaqueritos</h1></a>
 

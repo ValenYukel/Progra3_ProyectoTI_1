@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import VerTodas from "../../components/VerTodas/VerTodas";
 import './styles.css';
+import Filtro from "../../components/Filtro/Filtro";
 
 class VerTodo extends Component{
     
@@ -8,6 +9,7 @@ class VerTodo extends Component{
     super(props)
     this.state = {
         objetos: [],
+        backupObjetos: [],
         categoria: props.match.params.categoria
       
     }
@@ -19,7 +21,10 @@ class VerTodo extends Component{
       .then((response) => response.json())
       .then((data) => { 
         this.setState({
-          objetos: data
+          objetos: data,
+          backupObjetos: data,
+          cantidadAMostrar: 2
+          
         });
       })
       .catch((error) => console.log(error));
@@ -36,24 +41,56 @@ class VerTodo extends Component{
           console.log(data);
           this.setState({
             objetos: data,
-            categoria: nuevaCategoria
+            backupObjetos: data,
+            categoria: nuevaCategoria,
+            cantidadAMostrar: 2
           });
         })
         .catch((error) => console.log(error));
     }
   }
+
+  filtrarContenido(buscado){
+    const contenidoFiltrado = this.state.backupObjetos.filter(
+        (elm) => elm.title.toLowerCase().includes(buscado.toLowerCase())
+    )
+    this.setState({objetos: contenidoFiltrado})
+}
+
+cargarMas = () => {
+  this.setState((prevState) => ({
+    cantidadAMostrar: prevState.cantidadAMostrar + 2
+  }));
+};
   
 
   render(){
     return(
         <>
         <main>
-        <h2 class="ult_nov">CATEGORIA {this.state.categoria.toUpperCase()}</h2> 
-        <article class="productos">
+        <div style={{textAlign: 'center', margin: '100px'}}>
+        <h2 className="ult_nov">CATEGORIA {this.state.categoria.toUpperCase()}</h2> 
+        <Filtro filtro={(busqueda) => this.filtrarContenido(busqueda)} />
+        </div>
+        <article className="productos">
         {
-        this.state.objetos.map((elm, idx) => <VerTodas data={elm} key={idx + elm.title} /> )
+       this.state.objetos.map((elm, idx) => {
+        if (idx < this.state.cantidadAMostrar) {
+          return <VerTodas data={elm} key={idx + elm.title} />
+        }
+        return null; 
+      })
       }
       </article>
+     
+      {
+          this.state.cantidadAMostrar < this.state.objetos.length && (
+            <div style={{textAlign: 'center', margin: '50px'}}>
+              <button onClick={this.cargarMas} style={{fontSize: '18px', fontFamily: "Lato"}}>Cargar más</button>
+            </div>
+          )
+        }
+
       </main>
         </>
     )

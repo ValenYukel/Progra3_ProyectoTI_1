@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom";
 import './styles.css';
 
 export default class VerTodas extends Component {
@@ -12,13 +11,13 @@ export default class VerTodas extends Component {
 
   render() {
     return (
-<div class="producto_category">
-<div class="remera-img">
-<img src={this.state.dataObjetos.image}/>
-    <div class="info">
-        <p class="nombre-producto">{this.state.dataObjetos.title}</p>
-        <p class="descripcion-producto">{this.state.dataObjetos.description}</p>
-        <p class="precio-producto">{this.state.dataObjetos.price}</p>
+<div className="producto_category">
+<div className="remera-img">
+<img src={this.state.dataObjetos.image} alt="imagen-producto"/>
+    <div className="info">
+        <p className="nombre-producto">{this.state.dataObjetos.title}</p>
+        <p className="descripcion-producto">{this.state.dataObjetos.description}</p>
+        <p className="precio-producto">{this.state.dataObjetos.price}</p>
     </div>
 </div>
 </div> 

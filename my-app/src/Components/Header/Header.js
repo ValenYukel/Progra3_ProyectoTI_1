@@ -16,23 +16,19 @@ function Header() {
         },
         {
             name:'Electronics',
-            path: '/completo/electronics'
+            path: '/categoria/electronics'
         },
         {
             name:'Jewelery',
-            path: '/completo/jewelery'
+            path: '/categoria/jewelery'
         },
         {
-            name:'Men',
-            path: '/completo/men'
+            name:'Men Clothing',
+            path: '/categoria/men%27s%20clothing'
         },
         {
-            name:'Women',
-            path: '/completo/women'
-        },
-        {
-            name:'Ver Todas',
-            path: '/completo/jewelery'
+            name:'Women Clothing',
+            path: '/categoria/women%27s%20clothing'
         }
     ]
     return (

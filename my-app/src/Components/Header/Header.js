@@ -16,23 +16,23 @@ function Header() {
         },
         {
             name:'Electronics',
-            path: '/electronics'
+            path: '/completo/electronics'
         },
         {
             name:'Jewelery',
-            path: '/jewelery'
+            path: '/completo/jewelery'
         },
         {
             name:'Men',
-            path: '/men'
+            path: '/completo/men'
         },
         {
             name:'Women',
-            path: '/women'
+            path: '/completo/women'
         },
         {
             name:'Ver Todas',
-            path: '/ver-todas/jewelery'
+            path: '/completo/jewelery'
         }
     ]
     return (

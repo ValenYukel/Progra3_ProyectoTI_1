@@ -3,7 +3,7 @@ import {Route, Switch } from 'react-router-dom'
 import Home from './screens/Home/Home';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header'
-import Todo from './screens/Secciones/Todo';
+import VerTodo from './screens/VerTodo/VerTodo';
 
 
 function App() {
@@ -15,7 +15,9 @@ function App() {
 
     <Switch>
         <Route path={'/'} exact={true} component={Home} />
-        <Route path={'/ver-todas/jewelery'} component={Todo} />
+        <Route path="/completo/jewelery" component={VerTodo} />
+        <Route path="/completo/electronics" component={VerTodo} />
+
     </Switch>
     
   <Footer />

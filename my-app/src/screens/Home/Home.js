@@ -7,8 +7,9 @@ function Home(){
     return(
     <React.Fragment>  
       <Loader /> 
-       <h1>Home</h1>
+       
       <main>
+      <h1>Home</h1>
       <h1>PELICULAS POPULARES</h1>
       <SeccionPopulares />
       <h1>PELICULAS EN CARTELERA</h1>

@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import VerTodas from "../../components/VerTodas/VerTodas";
 import './styles.css';
 import Filtro from "../../components/Filtro/Filtro";
+import Loader from "../../components/Loader/Loader";
+
 
 class VerTodo extends Component{
     
@@ -10,7 +12,8 @@ class VerTodo extends Component{
     this.state = {
         objetos: [],
         backupObjetos: [],
-        categoria: props.match.params.categoria
+        categoria: props.match.params.categoria,
+        cargando: true
       
     }
   }
@@ -23,7 +26,8 @@ class VerTodo extends Component{
         this.setState({
           objetos: data,
           backupObjetos: data,
-          cantidadAMostrar: 2
+          cantidadAMostrar: 2,
+          cargando: false
           
         });
       })
@@ -43,7 +47,8 @@ class VerTodo extends Component{
             objetos: data,
             backupObjetos: data,
             categoria: nuevaCategoria,
-            cantidadAMostrar: 2
+            cantidadAMostrar: 2,
+            cargando: false
           });
         })
         .catch((error) => console.log(error));
@@ -65,6 +70,11 @@ cargarMas = () => {
   
 
   render(){
+
+    if (this.state.cargando) {
+        return <Loader />;
+      }
+
     return(
         <>
         <main>

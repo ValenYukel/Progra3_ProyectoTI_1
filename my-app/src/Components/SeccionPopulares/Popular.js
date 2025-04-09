@@ -6,6 +6,6 @@ function Popular(props) {
         <p>{props.data.name}</p>
     </article>
   )
-}
+};
 
-export default Popular
+export default Popular;

@@ -1,6 +1,6 @@
 import React from "react";
 import OpcionesHeader from "./OpcionesHeader";
-import './styles.css'
+import './styles.css';
 
 
 function Header() {
@@ -16,31 +16,29 @@ function Header() {
         },
         {
             name:'Electronics',
-            path: '/electronics'
+            path: '/categoria/electronics'
         },
         {
             name:'Jewelery',
-            path: '/jewelery'
+            path: '/categoria/jewelery'
         },
         {
-            name:'Men',
-            path: '/men'
+            name:'Men Clothing',
+            path: '/categoria/men%27s%20clothing'
         },
         {
-            name:'Women',
-            path: '/women'
-        },
-        {
-            name:'Ver Todas',
-            path: '/ver-todas/jewelery'
+            name:'Women Clothing',
+            path: '/categoria/women%27s%20clothing'
         }
     ]
+
+
     return (
     <>
         <header>
 <div id="conteiner">
 
-    <div class="titulo">
+    <div className="titulo">
         
     <a href="/"><h1>Vaqueritos</h1></a>
 

@@ -1,6 +1,4 @@
-main{
-    min-width: 100%;
-}
+
 
 .secc{
     text-align: left;
@@ -13,11 +11,6 @@ main{
    display: flexbox;
    padding: 30px;
 }
-
-.productos{
-    display: flexbox;
- }
-
 
  .producto_category{
     display: grid;

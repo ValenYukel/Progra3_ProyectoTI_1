@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function OpcionesHeader(props) {
     return (
-       props.opciones.map((elm) =>  <Link to = {elm.path}> {elm.name} </Link> )
+       props.opciones.map((elm, idx) =>  <Link to = {elm.path} key={idx + "-" + elm.name }> {elm.name} </Link> )
     )
 };
 

@@ -16,13 +16,13 @@ class VerTodo extends Component{
         cargando: true
       
     }
-  }
+  };
 
 
   componentDidMount() {
     fetch(`https://fakestoreapi.com/products/category/${this.state.categoria}`)
       .then((response) => response.json())
-      .then((data) => { 
+      .then((data) => {
         this.setState({
           objetos: data,
           backupObjetos: data,
@@ -32,7 +32,7 @@ class VerTodo extends Component{
         });
       })
       .catch((error) => console.log(error));
-  }
+  };
 
 
   componentDidUpdate(antesProps) {
@@ -53,14 +53,14 @@ class VerTodo extends Component{
         })
         .catch((error) => console.log(error));
     }
-  }
+  };
 
   filtrarContenido(buscado){
     const contenidoFiltrado = this.state.backupObjetos.filter(
         (elm) => elm.title.toLowerCase().includes(buscado.toLowerCase())
     )
     this.setState({objetos: contenidoFiltrado})
-}
+};
 
 cargarMas = () => {
   this.setState((prevState) => ({
@@ -72,8 +72,15 @@ cargarMas = () => {
   render(){
 
     if (this.state.cargando) {
-        return <Loader />;
-      }
+        
+      return (
+      <>
+        <main>
+      <Loader/>;
+      </main>
+      </>
+      )
+      };
 
     return(
         <>

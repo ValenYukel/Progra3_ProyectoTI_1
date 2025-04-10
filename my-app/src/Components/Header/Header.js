@@ -16,11 +16,11 @@ function Header() {
         },
         {
             name:'Populares',
-            path: '/vertodo/populares'
+            path: '/vertodo-pop/populares'
         },
         {
             name:'Proximos Estrenos',
-            path: '/vertodo/estrenos'
+            path: '/vertodo-est/estrenos'
         }
     ]
 

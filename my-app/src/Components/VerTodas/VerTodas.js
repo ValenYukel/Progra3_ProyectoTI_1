@@ -16,8 +16,9 @@ export default class VerTodas extends Component {
 <img src={'https://image.tmdb.org/t/p/w300/' + this.state.dataObjetos.poster_path} alt="imagen-pelicula"/>
     <div className="info">
         <p className="nombre-producto">{this.state.dataObjetos.title}</p>
-        <p className="descripcion-producto">{this.state.dataObjetos.overview}</p>
-        <p className="precio-producto">{this.state.dataObjetos.release_date}</p>
+        <p className="descripcion-producto">Trama: {this.state.dataObjetos.overview}</p>
+        <p className="precio-producto">Estreno: {this.state.dataObjetos.release_date}</p>
+        <p className="precio-producto"> Popularidad: {this.state.dataObjetos.popularity}</p>
     </div>
 </div>
 </div> 

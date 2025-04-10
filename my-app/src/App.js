@@ -15,7 +15,7 @@ function App() {
 
     <Switch>
         <Route path={'/'} exact={true} component={Home} />
-        <Route path="/categoria/:categoria" component={VerTodo} />
+        <Route path="/vertodo/:vertodo" component={VerTodo} />
     </Switch>
     
   <Footer />

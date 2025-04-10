@@ -5,7 +5,7 @@ export default class VerTodas extends Component {
     constructor(props){
         super(props)
         this.state={
-            dataObjetos: props.data
+            dataObjetos: props.data,
         }
     }
 
@@ -13,11 +13,11 @@ export default class VerTodas extends Component {
     return (
 <div className="producto_category">
 <div className="remera-img">
-<img src={this.state.dataObjetos.image} alt="imagen-producto"/>
+<img src={'https://image.tmdb.org/t/p/w300/' + this.state.dataObjetos.poster_path} alt="imagen-pelicula"/>
     <div className="info">
         <p className="nombre-producto">{this.state.dataObjetos.title}</p>
-        <p className="descripcion-producto">{this.state.dataObjetos.description}</p>
-        <p className="precio-producto">{this.state.dataObjetos.price}</p>
+        <p className="descripcion-producto">{this.state.dataObjetos.overview}</p>
+        <p className="precio-producto">{this.state.dataObjetos.release_date}</p>
     </div>
 </div>
 </div> 

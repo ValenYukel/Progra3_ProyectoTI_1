@@ -62,7 +62,7 @@ export default class SeccionCartel extends Component {
       return (
         <div className='general-data'>
           <h1>{this.state.dataPelicula.original_title}</h1>
-          <img src={'https://image.tmdb.org/t/p/w300/' + this.state.dataPelicula.poster_path} />
+          <img src={'https://image.tmdb.org/t/p/w300/' + this.state.dataPelicula.poster_path} alt="imagen-pelicula"/>
           
           {
             this.state.favorito ?

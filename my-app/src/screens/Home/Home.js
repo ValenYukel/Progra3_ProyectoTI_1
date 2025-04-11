@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import SeccionPopulares from '../../Components/SeccionPopulares/SeccionPopulares';
 import SeccionCarteles from '../../Components/SeccionCartel/SeccionCartel';
-import Loader from '../../Components/Loader/Loader';
+import Loader from '../../omponents/Loader/Loader';
 
 /*function Home(){
     return(

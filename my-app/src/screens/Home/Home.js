@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import SeccionPopulares from '../../Components/SeccionPopulares/SeccionPopulares';
-import SeccionCarteles from '../../Components/SeccionCartel/SeccionCartel';
-import Loader from '../../omponents/Loader/Loader';
-
+import SeccionPopulares from '../../components/SeccionPopulares/SeccionPopulares';
+import SeccionCarteles from '../../components/SeccionCartel/SeccionCartel';
+import Loader from '../../components/Loader/Loader';
 /*function Home(){
     return(
     <React.Fragment>  
@@ -27,7 +26,8 @@ class Home extends Component {
         super(props)
         this.state = {
             Home: [],
-            backupHome: []
+            backupHome: [],
+            cargando: true
         }
     }
 
@@ -37,7 +37,8 @@ class Home extends Component {
         .then(( data ) => this.setState({
           
           Home:data.results, 
-          backupHome: data.results
+          backupHome: data.results,
+          cargando: false
           //console.log(data))
         })) 
         .catch((error) => console.log(error) );
@@ -51,6 +52,18 @@ class Home extends Component {
     }
 
     render(){
+
+        if (this.state.cargando) {
+        
+            return (
+            <>
+              <main>
+            <Loader/>;
+            </main>
+            </>
+            )
+            };
+            
         return(
             <>
             <h1>Peliculas en cartelera</h1>

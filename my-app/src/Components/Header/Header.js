@@ -15,20 +15,12 @@ function Header() {
             path: '/favoritos'
         },
         {
-            name:'Electronics',
-            path: '/categoria/electronics'
+            name:'Populares',
+            path: '/vertodo-pop/populares'
         },
         {
-            name:'Jewelery',
-            path: '/categoria/jewelery'
-        },
-        {
-            name:'Men Clothing',
-            path: '/categoria/men%27s%20clothing'
-        },
-        {
-            name:'Women Clothing',
-            path: '/categoria/women%27s%20clothing'
+            name:'Proximos Estrenos',
+            path: '/vertodo-est/estrenos'
         }
     ]
 

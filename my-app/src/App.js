@@ -1,10 +1,10 @@
 import React from 'react';
 import {Route, Switch } from 'react-router-dom'
 import Home from './screens/Home/Home';
-import Footer from './Components/Footer/Footer';
-import Header from './Components/Header/Header'
-import VerTodo from './screens/VerTodo/VerTodo';
-
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header'
+import VerTodoPopulares from './screens/VerTodo/VerTodoPopulares';
+import VerTodoEstrenos from './screens/VerTodo/VerTodoEstrenos';
 
 function App() {
   return (
@@ -15,7 +15,8 @@ function App() {
 
     <Switch>
         <Route path={'/'} exact={true} component={Home} />
-        <Route path="/categoria/:categoria" component={VerTodo} />
+        <Route path="/vertodo-pop/:vertodo" component={VerTodoPopulares} />
+        <Route path="/vertodo-est/:vertodo" component={VerTodoEstrenos} />
     </Switch>
     
   <Footer />

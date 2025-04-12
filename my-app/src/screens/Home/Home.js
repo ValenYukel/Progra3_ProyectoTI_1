@@ -34,7 +34,7 @@ class Home extends Component {
     .then(response => response.json())
     .then(popularData => {
       
-      this.setState({ popular: popularData.results.slice(0, 5), backupPopular: popularData.results.slice(0, 5), cargando: false });
+      this.setState({ popular: popularData.results.slice(5, 10), backupPopular: popularData.results.slice(5, 10), cargando: false });
     })
     .catch(error => {
       console.error('Error al obtener los datos:', error);
@@ -61,7 +61,7 @@ class Home extends Component {
 
             {
               this.state.nowPlaying.length === 0 ? (
-                <h1>Cargando nowPlaying de Cartelera</h1>
+                <h1>Cargando peliculas en Cartelera</h1>
               ) : (
                 <section className="contenedor-peliculas">
                   {

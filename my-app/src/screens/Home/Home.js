@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 import SeccionPopulares from '../../components/SeccionPopulares/SeccionPopulares';
 import SeccionCarteles from '../../components/SeccionCartel/SeccionCartel';
 import Loader from '../../components/Loader/Loader';
-/*function Home(){
+/*function nowPlaying(){
     return(
     <React.Fragment>  
       <Loader /> 
        
       <main>
-      <h1>Home</h1>
+      <h1>nowPlaying</h1>
       <h1>PELICULAS POPULARES</h1>
       <SeccionPopulares />
       <h1>PELICULAS EN CARTELERA</h1>
@@ -25,30 +25,64 @@ class Home extends Component {
     constructor(props){
         super(props)
         this.state = {
-            Home: [],
-            backupHome: [],
-            cargando: true
+            nowPlaying: [],
+            backupnowPlaying: [],
+            cargando: true,
+            popular: [],
+            backupPopular: []
         }
     }
 
     componentDidMount(){
         fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=' + api_key)
         .then((response) => response.json())
+        .then(carteleraData => {
+      this.setState({ nowPlaying:carteleraData.results, 
+        backupnowPlaying: carteleraData.results,
+        cargando: false});
+
+     
+      return fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=' + api_key);
+    })
+    .then(response => response.json())
+    .then(popularData => {
+      
+      this.setState({ popular: popularData.results, backupPopular: popularData.results, cargando: false });
+    })
+    .catch(error => {
+      console.error('Error al obtener los datos:', error);
+    });
+}
+/*
         .then(( data ) => this.setState({
           
-          Home:data.results, 
-          backupHome: data.results,
+          nowPlaying:data.results, 
+          backupnowPlaying: data.results,
           cargando: false
           //console.log(data))
+        fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=' + api_key)
+          .then((response) => response.json())
+          .then(( data ) => this.setState({
+            
+            nowPlaying:data.results, 
+            backupnowPlaying: data.results,
+            cargando: false
         })) 
         .catch((error) => console.log(error) );
     }
-
-    filtrarHome(busquedaUsuario){
-        const HomeFiltrados = this.state.backupHome.filter(
+*/
+    filtrarnowPlaying(busquedaUsuario){
+        const nowPlayingFiltrados = this.state.backupnowPlaying.filter(
             (elm) => elm.name.toLowerCase().includes(busquedaUsuario.toLowerCase())
         )
-        this.setState({Home: HomeFiltrados})
+        this.setState({nowPlaying: nowPlayingFiltrados})
+    }
+
+    filtrarPopular(busquedaUsuario){
+        const popularFiltrados = this.state.backupPopular.filter(
+            (elm) => elm.name.toLowerCase().includes(busquedaUsuario.toLowerCase())
+        )
+        this.setState({popular: popularFiltrados})
     }
 
     render(){
@@ -69,10 +103,20 @@ class Home extends Component {
             <h1>Peliculas en cartelera</h1>
 
             {
-                this.state.Home.length === 0 ?
-                <h1>Cargando Home de Cartelera</h1>
+                this.state.nowPlaying.length === 0 ?
+                <h1>Cargando nowPlaying de Cartelera</h1>
                 :
-                this.state.Home.map((elm, idx) => <SeccionCarteles data={elm} key={idx + elm.name} /> 
+                this.state.nowPlaying.map((elm, idx) => <SeccionCarteles data={elm} key={idx + elm.name} /> 
+              
+                )
+
+            }
+            <h1>Peliculas populares</h1>
+            {
+                this.state.popular.length === 0 ?
+                <h1>Cargando Peliculas populares </h1>
+                :
+                this.state.popular.map((elm, idx) => <SeccionPopulares data={elm} key={idx + elm.name} /> 
               
                 )
 

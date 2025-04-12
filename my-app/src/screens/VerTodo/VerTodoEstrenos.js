@@ -1,8 +1,8 @@
 import React, {Component} from "react";
-import VerTodas from "../../Components/VerTodas/VerTodas";
+import VerTodas from "../../components/VerTodas/VerTodas";
 import './styles.css';
-import Filtro from "../../Components/Filtro/Filtro";
-import Loader from "../../Components/Loader/Loader";
+import Filtro from "../../components/Filtro/Filtro";
+import Loader from "../../components/Loader/Loader";
 
 
 class VerTodoEstrenos extends Component{

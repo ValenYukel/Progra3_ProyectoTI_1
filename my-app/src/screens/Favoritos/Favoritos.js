@@ -1,0 +1,88 @@
+import React, {Component} from 'react';
+import SeccionPopulares from '../../components/SeccionPopulares/SeccionPopulares';
+import SeccionCarteles from '../../components/SeccionCartel/SeccionCartel';
+import Loader from '../../components/Loader/Loader';
+/*function Favoritos(){
+    return(
+    <React.Fragment>  
+      <Loader /> 
+       
+      <main>
+      <h1>Favoritos</h1>
+      <h1>PELICULAS POPULARES</h1>
+      <SeccionPopulares />
+      <h1>PELICULAS EN CARTELERA</h1>
+      <SeccionCarteles />
+      </main>
+
+    </React.Fragment>   
+    )
+};*/
+
+const api_key = "14c41ab32cccfc97ee8d878a2ca4b3ac"
+
+class Favoritos extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            Favoritos: [],
+            backupFavoritos: [],
+            cargando: true
+        }
+    }
+
+    componentDidMount(){
+        let favoritosStorage = localStorage.getItem('favorito');
+        let favoritosIds = favoritosStorage ? JSON.parse(favoritosStorage) : [];
+        fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=' + api_key)
+        .then((response) => response.json())
+        .then(( data ) => {
+         
+            const peliculasFavoritas = data.results.filter((pelicula) =>
+                favoritosIds.includes(pelicula.id)
+            );
+
+           
+            this.setState({
+                Favoritos: peliculasFavoritas,
+                backupFavoritos: data.results,
+                cargando: false
+            });
+        })
+        .catch((error) => console.log(error) );
+    }
+
+    render(){
+
+        if (this.state.cargando) {
+        
+            return (
+            <>
+              <main>
+            <Loader/>;
+            </main>
+            </>
+            )
+            };
+            
+        return(
+            <>
+            <h1>Tus peliculas favoritas</h1>
+
+            {
+                this.state.Favoritos.length === 0 ?
+                <h1>No tienes peliculas favoritas</h1>
+                :
+                this.state.Favoritos.map((elm, i) => <SeccionCarteles data={elm} key={elm.name + i} /> 
+              
+                )
+
+            }
+            </>
+        )
+    }
+}
+
+
+
+export default Favoritos;

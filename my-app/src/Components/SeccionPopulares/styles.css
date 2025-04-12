@@ -1,17 +1,38 @@
-/* Top/* Categorías */
-.general-data {
+.contenedor-peliculas {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    background-color: #fff;
-    padding: 20px 20px 10px 20px;
-}
-.general-data .group {
-    width: 32%;
-    border-radius: 4px;
-    background-color: #070707;
-    margin-bottom: 10px;
-    padding: 0 20px;
-    color: #fff;
-}
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .general-data {
+    width: 220px;
+    border: 5px  #ccc;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  
+  .general-data img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .boton button,
+  .general-data > button {
+    margin-top: 10px;
+    width: 90%;
+    padding: 8px;
+    background-color: #ff0000;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  
+  .hide {
+    display: none;
+  }
+  

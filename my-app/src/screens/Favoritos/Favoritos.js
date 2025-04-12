@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import SeccionPopulares from '../../components/SeccionPopulares/SeccionPopulares';
-import SeccionCarteles from '../../components/SeccionCartel/SeccionCartel';
+import SeccionCartel from '../../components/SeccionCartel/SeccionCartel';
 import Loader from '../../components/Loader/Loader';
 /*function Favoritos(){
     return(
@@ -72,12 +72,17 @@ class Favoritos extends Component {
             {
                 this.state.Favoritos.length === 0 ?
                 <h1>No tienes peliculas favoritas</h1>
-                :
-                this.state.Favoritos.map((elm, i) => <SeccionCarteles data={elm} key={elm.name + i} /> 
-              
-                )
-
-            }
+                :(
+                                <section className="contenedor-peliculas">
+                                  {
+                                    this.state.Favoritos.map((elm, idx) => (
+                                      <SeccionPopulares data={elm} key={idx + elm.name}/> ,
+                                      <SeccionCartel data={elm} key={idx + elm.name} />
+                                    ))
+                                  }
+                                </section>
+                              )
+                            }
             </>
         )
     }

@@ -21,7 +21,14 @@ export default class Resultados extends Component {
       <div>
         Resultados de: {this.state.busqueda}
         <section>
-            {this.state.resultados.map(elm => <h1>{elm.original_title}</h1>)}
+            {this.state.resultados.map(elm => 
+            <article>
+            <h1>{elm.original_title}</h1>
+            <img
+              src={'https://image.tmdb.org/t/p/w300/' + elm.poster_path}
+              alt={elm.original_title}
+            />
+          </article>)}
         </section>
         
     </div>

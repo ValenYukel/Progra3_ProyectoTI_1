@@ -1,24 +1,10 @@
 import React, {Component} from 'react';
+import {Link} from "react-router-dom";
 import SeccionPopulares from '../../components/SeccionPopulares/SeccionPopulares';
 import SeccionCarteles from '../../components/SeccionCartel/SeccionCartel';
 import Loader from '../../components/Loader/Loader';
 import Buscador from '../../components/Buscador/Buscador'
-/*function nowPlaying(){
-    return(
-    <React.Fragment>  
-      <Loader /> 
-       
-      <main>
-      <h1>nowPlaying</h1>
-      <h1>PELICULAS POPULARES</h1>
-      <SeccionPopulares />
-      <h1>PELICULAS EN CARTELERA</h1>
-      <SeccionCarteles />
-      </main>
 
-    </React.Fragment>   
-    )
-};*/
 
 const api_key = "14c41ab32cccfc97ee8d878a2ca4b3ac"
 
@@ -38,8 +24,8 @@ class Home extends Component {
         fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=' + api_key)
         .then((response) => response.json())
         .then(carteleraData => {
-      this.setState({ nowPlaying:carteleraData.results, 
-        backupnowPlaying: carteleraData.results,
+      this.setState({ nowPlaying:carteleraData.results.slice(0, 5), 
+        backupnowPlaying: carteleraData.results.slice(0, 5),
         cargando: false});
 
      
@@ -48,44 +34,12 @@ class Home extends Component {
     .then(response => response.json())
     .then(popularData => {
       
-      this.setState({ popular: popularData.results, backupPopular: popularData.results, cargando: false });
+      this.setState({ popular: popularData.results.slice(0, 5), backupPopular: popularData.results.slice(0, 5), cargando: false });
     })
     .catch(error => {
       console.error('Error al obtener los datos:', error);
     });
 }
-/*
-        .then(( data ) => this.setState({
-          
-          nowPlaying:data.results, 
-          backupnowPlaying: data.results,
-          cargando: false
-          //console.log(data))
-        fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=' + api_key)
-          .then((response) => response.json())
-          .then(( data ) => this.setState({
-            
-            nowPlaying:data.results, 
-            backupnowPlaying: data.results,
-            cargando: false
-        })) 
-        .catch((error) => console.log(error) );
-    }
-*/
-    filtrarnowPlaying(busquedaUsuario){
-        const nowPlayingFiltrados = this.state.backupnowPlaying.filter(
-            (elm) => elm.name.toLowerCase().includes(busquedaUsuario.toLowerCase())
-        )
-        this.setState({nowPlaying: nowPlayingFiltrados})
-    }
-
-    filtrarPopular(busquedaUsuario){
-        const popularFiltrados = this.state.backupPopular.filter(
-            (elm) => elm.name.toLowerCase().includes(busquedaUsuario.toLowerCase())
-        )
-        this.setState({popular: popularFiltrados})
-    }
-
     render(){
 
         if (this.state.cargando) {
@@ -101,27 +55,37 @@ class Home extends Component {
             
         return(
             <>
-            <Buscador history={props.history} />
-            <h1>Peliculas en cartelera</h1>
+            <Buscador history={this.props.history} />
+            <h1>Peliculas en cartelera</h1> 
+            <button><Link to="/vertodo-est/estrenos">Ver todas</Link></button>
 
             {
-                this.state.nowPlaying.length === 0 ?
+              this.state.nowPlaying.length === 0 ? (
                 <h1>Cargando nowPlaying de Cartelera</h1>
-                :
-                this.state.nowPlaying.map((elm, idx) => <SeccionCarteles data={elm} key={idx + elm.name} /> 
-              
-                )
-
+              ) : (
+                <section className="contenedor-peliculas">
+                  {
+                    this.state.nowPlaying.map((elm, idx) => (
+                      <SeccionCarteles data={elm} key={idx + elm.name} />
+                    ))
+                  }
+                </section>
+              )
             }
-            <h1>Peliculas populares</h1>
+            <h1>Peliculas populares</h1> 
+            <button><Link to="/vertodo-pop/populares">Ver todas</Link></button>
             {
-                this.state.popular.length === 0 ?
-                <h1>Cargando Peliculas populares </h1>
-                :
-                this.state.popular.map((elm, idx) => <SeccionPopulares data={elm} key={idx + elm.name} /> 
-              
-                )
-
+              this.state.popular.length === 0 ? (
+                <h1>Cargando peliculas populares</h1>
+              ) : (
+                <section className="contenedor-peliculas">
+                  {
+                    this.state.popular.map((elm, idx) => (
+                      <SeccionPopulares data={elm} key={idx + elm.name} />
+                    ))
+                  }
+                </section>
+              )
             }
             </>
         )

@@ -47,7 +47,7 @@ export default class SeccionPopulares extends Component {
       }
   
       sacarDeFavorito(id){
-        const storage = localStorage.getItem('Favorito')
+        const storage = localStorage.getItem('favorito')
         const storageParseado = JSON.parse(storage)
         const filtrarStorage = storageParseado.filter((elm) => elm !== id )
         const storageStringificado = JSON.stringify(filtrarStorage)
@@ -60,16 +60,18 @@ export default class SeccionPopulares extends Component {
   
     render() {
       return (
-        <div className='general-data'>
-          <h1>{this.state.dataPelicula.original_title}</h1>
-          <img src={'https://image.tmdb.org/t/p/w300/' + this.state.dataPelicula.poster_path} alt="imagen-pelicula"/>
+        <div className='resultados'>
+          <article className='general-data'>
+            <h1>{this.state.dataPelicula.original_title}</h1>
+          <img src={'https://image.tmdb.org/t/p/w342/' + this.state.dataPelicula.poster_path} alt="imagen-pelicula"/>
           
-          {
+         <section className='boton'> {
             this.state.favorito ?
             <button onClick={()=> this.sacarDeFavorito(this.state.dataPelicula.id) }>Sacar del Favorito</button>
             :
             <button onClick={() => this.agregarAFavorito(this.state.dataPelicula.id)}>Agregar al Favorito</button>
           }
+          </section>
           <div className={this.state.mostrarContenido ? '' : 'hide'}>
                     <p>
                         {this.state.dataPelicula.overview}
@@ -79,6 +81,7 @@ export default class SeccionPopulares extends Component {
                 <button onClick={() => this.ocultar()} >
                     Ver descripcion
                 </button>
+          </article>
          </div>
       )
     }

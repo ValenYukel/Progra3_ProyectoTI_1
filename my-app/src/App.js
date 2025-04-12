@@ -7,6 +7,7 @@ import VerTodoPopulares from './screens/VerTodo/VerTodoPopulares';
 import VerTodoEstrenos from './screens/VerTodo/VerTodoEstrenos';
 import NotFound from './screens/NotFound/NotFound';
 import Favoritos from './screens/Favoritos/Favoritos';
+import Resultados from "./screens/Resultados/Resultados";
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
         <Route path="/vertodo-pop/:vertodo" component={VerTodoPopulares} />
         <Route path="/vertodo-est/:vertodo" component={VerTodoEstrenos} />
         <Route path="/favoritos" component={Favoritos} />
-        <Route component={NotFound} />
+        <Route path={'/resultados/:busqueda'} component={Resultados} />
+        <Route path={''} component={NotFound} />
     </Switch>
     
   <Footer />

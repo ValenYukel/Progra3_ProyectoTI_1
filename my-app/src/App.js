@@ -6,6 +6,7 @@ import Header from './components/Header/Header'
 import VerTodoPopulares from './screens/VerTodo/VerTodoPopulares';
 import VerTodoEstrenos from './screens/VerTodo/VerTodoEstrenos';
 import NotFound from './screens/NotFound/NotFound';
+import Favoritos from './screens/Favoritos/Favoritos';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path={'/'} exact={true} component={Home} />
         <Route path="/vertodo-pop/:vertodo" component={VerTodoPopulares} />
         <Route path="/vertodo-est/:vertodo" component={VerTodoEstrenos} />
+        <Route path="/favoritos" component={Favoritos} />
         <Route component={NotFound} />
     </Switch>
     

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Cartel from './Cartel'
 import './styles.css'
 
 export default class SeccionCartel extends Component {
@@ -47,11 +46,11 @@ export default class SeccionCartel extends Component {
       }
   
       sacarDeFavorito(id){
-        const storage = localStorage.getItem('Favorito')
+        const storage = localStorage.getItem('favorito')
         const storageParseado = JSON.parse(storage)
         const filtrarStorage = storageParseado.filter((elm) => elm !== id )
         const storageStringificado = JSON.stringify(filtrarStorage)
-        localStorage.setItem('Favorito', storageStringificado)
+        localStorage.setItem('favorito', storageStringificado)
   
         this.setState({
           favorito: false
@@ -66,9 +65,9 @@ export default class SeccionCartel extends Component {
           
           {
             this.state.favorito ?
-            <button onClick={()=> this.sacarDeFavorito(this.state.dataPelicula.id) }>Sacar del Favorito</button>
+            <button onClick={()=> this.sacarDeFavorito(this.state.dataPelicula.id) }>Sacar de Favoritos</button>
             :
-            <button onClick={() => this.agregarAFavorito(this.state.dataPelicula.id)}>Agregar al Favorito</button>
+            <button onClick={() => this.agregarAFavorito(this.state.dataPelicula.id)}>Agregar Favorito</button>
           }
           <div className={this.state.mostrarContenido ? '' : 'hide'}>
                     <p>
@@ -92,3 +91,4 @@ export default class SeccionCartel extends Component {
     </section>
   )*/
 
+console.log(localStorage.getItem('favorito'));

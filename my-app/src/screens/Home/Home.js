@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import SeccionPopulares from '../../components/SeccionPopulares/SeccionPopulares';
 import SeccionCarteles from '../../components/SeccionCartel/SeccionCartel';
 import Loader from '../../components/Loader/Loader';
+import Buscador from '../../components/Buscador/Buscador'
 /*function nowPlaying(){
     return(
     <React.Fragment>  
@@ -100,6 +101,7 @@ class Home extends Component {
             
         return(
             <>
+            <Buscador history={props.history} />
             <h1>Peliculas en cartelera</h1>
 
             {

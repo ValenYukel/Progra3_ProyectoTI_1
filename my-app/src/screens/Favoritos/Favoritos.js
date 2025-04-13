@@ -2,22 +2,7 @@ import React, {Component} from 'react';
 import SeccionPopulares from '../../components/SeccionPopulares/SeccionPopulares';
 import SeccionCartel from '../../components/SeccionCartel/SeccionCartel';
 import Loader from '../../components/Loader/Loader';
-/*function Favoritos(){
-    return(
-    <React.Fragment>  
-      <Loader /> 
-       
-      <main>
-      <h1>Favoritos</h1>
-      <h1>PELICULAS POPULARES</h1>
-      <SeccionPopulares />
-      <h1>PELICULAS EN CARTELERA</h1>
-      <SeccionCarteles />
-      </main>
 
-    </React.Fragment>   
-    )
-};*/
 
 const api_key = "14c41ab32cccfc97ee8d878a2ca4b3ac"
 

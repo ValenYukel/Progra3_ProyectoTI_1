@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './styles.css'
+import { Link } from 'react-router-dom'
 
 export default class SeccionCartel extends Component {
     constructor(props){
@@ -62,7 +63,6 @@ export default class SeccionCartel extends Component {
         <div className='general-data'>
           <h1>{this.state.dataPelicula.original_title}</h1>
           <img src={'https://image.tmdb.org/t/p/w342/' + this.state.dataPelicula.poster_path} alt="imagen-pelicula"/>
-          
           {
             this.state.favorito ?
             <button onClick={()=> this.sacarDeFavorito(this.state.dataPelicula.id) }>Sacar de Favoritos</button>
@@ -78,6 +78,11 @@ export default class SeccionCartel extends Component {
                 <button onClick={() => this.ocultar()} >
                     Ver descripcion
                 </button>
+                
+                  <Link to={`/detalle/${this.state.dataPelicula.id}`}>
+                  <button>Ver Detalle</button>
+                  </Link>
+                
          </div>
       )
     }

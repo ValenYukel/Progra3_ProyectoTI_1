@@ -25,14 +25,14 @@ class VerTodoPopulares extends Component{
   componentDidMount() {
     const api_key = "14c41ab32cccfc97ee8d878a2ca4b3ac";
   
-      fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&api_key=' + api_key)
+      fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=' + api_key)
         .then((response) => response.json())
         .then((data) => {
           console.log("DATA",data);
           this.setState({
             objetos: data.results,
             backupObjetos: data.results,
-            cantidadAMostrar: 4,
+            cantidadAMostrar: 5,
             cargando: false
           });
         })
@@ -43,7 +43,7 @@ class VerTodoPopulares extends Component{
 
 cargarMas = () => {
   this.setState((prevState) => ({
-    cantidadAMostrar: prevState.cantidadAMostrar + 4
+    cantidadAMostrar: prevState.cantidadAMostrar + 5
   }));
 };
   

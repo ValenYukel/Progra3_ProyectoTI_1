@@ -34,7 +34,7 @@ class Home extends Component {
     })
     .then(response => response.json())
     .then(popularData => {
-      
+      console.log("DATA POPULAR", popularData);
       this.setState({ popular: popularData.results.slice(5, 10), backupPopular: popularData.results.slice(5, 10), cargando: false });
     })
     .catch(error => {

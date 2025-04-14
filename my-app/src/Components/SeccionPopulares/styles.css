@@ -20,7 +20,7 @@
   }
   
   .boton button,
-  .general-data > button {
+  .general-data  button {
     margin-top: 10px;
     width: 90%;
     padding: 8px;
@@ -28,7 +28,7 @@
     border: none;
     color: white;
     border-radius: 5px;
-    cursor: pointer;
+   
   }
   
   

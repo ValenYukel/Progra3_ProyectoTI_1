@@ -4,6 +4,7 @@ import SeccionPopulares from '../../components/SeccionPopulares/SeccionPopulares
 import SeccionCarteles from '../../components/SeccionCartel/SeccionCartel';
 import Loader from '../../components/Loader/Loader';
 import Buscador from '../../components/Buscador/Buscador'
+import './styles.css'
 
 
 const api_key = "14c41ab32cccfc97ee8d878a2ca4b3ac"
@@ -33,7 +34,7 @@ class Home extends Component {
     })
     .then(response => response.json())
     .then(popularData => {
-      
+      console.log("DATA POPULAR", popularData);
       this.setState({ popular: popularData.results.slice(5, 10), backupPopular: popularData.results.slice(5, 10), cargando: false });
     })
     .catch(error => {
@@ -57,7 +58,7 @@ class Home extends Component {
             <>
             <Buscador history={this.props.history} />
             <h1>Peliculas en cartelera</h1> 
-            <button><Link to="/vertodo-est/estrenos">Ver todas</Link></button>
+            <button className= 'boton'><Link to="/vertodo-est/estrenos">Ver todas</Link></button>
 
             {
               this.state.nowPlaying.length === 0 ? (
@@ -73,7 +74,7 @@ class Home extends Component {
               )
             }
             <h1>Peliculas populares</h1> 
-            <button><Link to="/vertodo-pop/populares">Ver todas</Link></button>
+            <button className= 'boton'><Link to="/vertodo-pop/populares">Ver todas</Link></button>
             {
               this.state.popular.length === 0 ? (
                 <h1>Cargando peliculas populares</h1>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './styles.css'
 
 export default class Buscador extends Component {
     constructor(props){
@@ -19,6 +20,7 @@ export default class Buscador extends Component {
 
   render() {
     return (
+      <article className= 'buscador'>
       <form
         onSubmit={(evento) => this.controlarForm(evento)}
       >
@@ -29,6 +31,7 @@ export default class Buscador extends Component {
         />
         <button type='submit'>Buscar</button>
       </form>
+      </article>
     )
   }
 }

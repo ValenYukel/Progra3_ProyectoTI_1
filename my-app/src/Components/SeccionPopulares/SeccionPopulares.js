@@ -65,7 +65,7 @@ export default class SeccionPopulares extends Component {
             <h1>{this.state.dataPelicula.original_title}</h1>
             <img src={'https://image.tmdb.org/t/p/w342/' + this.state.dataPelicula.poster_path} alt="imagen-pelicula"/>
 
-         <section className='boton'> {
+         <section> {
             this.state.favorito ?
             <button onClick={()=> this.sacarDeFavorito(this.state.dataPelicula.id) }>Sacar de Favoritos</button>
             :
@@ -81,7 +81,7 @@ export default class SeccionPopulares extends Component {
                 <button onClick={() => this.ocultar()} >
                     Ver descripcion
                 </button >
-                <Link to={`/detalle/${this.state.dataPelicula.id}`}className="boton">
+                <Link to={`/detalle/${this.state.dataPelicula.id}`}>
                 <button >Ver Detalle</button>
                 </Link>
           </article>
@@ -89,12 +89,3 @@ export default class SeccionPopulares extends Component {
       )
     }
   }
-
-  /*return (
-    <section className='general-data'>
-        {
-            Carteles.map((elm, idx)=> <Cartel key={`${idx}-${elm.name}`} data={elm} />)
-        }
-    </section>
-  )*/
-

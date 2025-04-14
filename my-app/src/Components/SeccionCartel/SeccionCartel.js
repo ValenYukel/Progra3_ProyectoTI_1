@@ -79,7 +79,7 @@ export default class SeccionCartel extends Component {
                     Ver descripcion
                 </button>
                 
-                  <Link to={`/detalle/${this.state.dataPelicula.id}`}className="boton">
+                  <Link to={`/detalle/${this.state.dataPelicula.id}`}>
                   <button>Ver Detalle</button>
                   </Link>
                 
@@ -87,13 +87,5 @@ export default class SeccionCartel extends Component {
       )
     }
   }
-
-  /*return (
-    <section className='general-data'>
-        {
-            Carteles.map((elm, idx)=> <Cartel key={`${idx}-${elm.name}`} data={elm} />)
-        }
-    </section>
-  )*/
 
 console.log(localStorage.getItem('favorito'));

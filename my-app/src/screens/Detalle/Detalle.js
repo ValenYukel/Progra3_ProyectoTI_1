@@ -86,7 +86,8 @@ class Detalle extends Component {
             return(<NotFound/>);
         } 
         return (
-            <main>
+            <main className="detalle">
+                <h2>Detalles de la película</h2>
                 <h1>{detalle.original_title}</h1>
                 <img
                     src={`https://image.tmdb.org/t/p/w500/${detalle.poster_path}`}
@@ -113,7 +114,7 @@ class Detalle extends Component {
                         </button>
                     )}
                 </section>
-                <Link to="/" className="boton"><button>Volver</button></Link>
+                <Link to="/" className="boton"><button>Volver al Inicio </button></Link>
             </main>
         );
     }

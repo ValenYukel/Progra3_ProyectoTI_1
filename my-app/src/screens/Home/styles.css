@@ -1,16 +1,16 @@
 
 .boton {
-    display: flex;
-   flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
   margin-top: 10px;
-  width: 90%;
+  width: 10%;
   padding: 8px;
   background-color: #ff0000;
   border: none;
   color: white;
   border-radius: 5px;
-  cursor: pointer;
+  
 }

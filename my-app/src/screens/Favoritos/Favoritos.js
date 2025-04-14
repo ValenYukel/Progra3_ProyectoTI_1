@@ -71,7 +71,7 @@ const api_key = "14c41ab32cccfc97ee8d878a2ca4b3ac"
                      <h1>No tienes peliculas favoritas</h1>
                  :
                  <h1>
-                     Cargando Favoritos
+                     No tienes peliculas favoritas
                  </h1>
              }
          </div>

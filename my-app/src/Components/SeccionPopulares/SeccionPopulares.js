@@ -80,9 +80,9 @@ export default class SeccionPopulares extends Component {
                 </div>
                 <button onClick={() => this.ocultar()} >
                     Ver descripcion
-                </button>
-                <Link to={`/detalle/${this.state.dataPelicula.id}`}>
-                <button>Ver Detalle</button>
+                </button >
+                <Link to={`/detalle/${this.state.dataPelicula.id}`}className="boton">
+                <button >Ver Detalle</button>
                 </Link>
           </article>
          </div>

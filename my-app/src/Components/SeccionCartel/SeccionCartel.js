@@ -79,7 +79,7 @@ export default class SeccionCartel extends Component {
                     Ver descripcion
                 </button>
                 
-                  <Link to={`/detalle/${this.state.dataPelicula.id}`}>
+                  <Link to={`/detalle/${this.state.dataPelicula.id}`}className="boton">
                   <button>Ver Detalle</button>
                   </Link>
                 

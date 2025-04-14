@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import NotFound from '../NotFound/NotFound'
+
 const api_key = "14c41ab32cccfc97ee8d878a2ca4b3ac"
 export default class Resultados extends Component {
     constructor(props){
@@ -17,6 +19,9 @@ export default class Resultados extends Component {
     }
 
   render() {
+    if(this.state.resultados.length === 0){
+        return <NotFound />
+    }
     return (
       <div>
         Resultados de: {this.state.busqueda}

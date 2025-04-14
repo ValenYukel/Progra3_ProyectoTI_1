@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Loader from "../../components/Loader/Loader";
 import { Link } from "react-router-dom";
+import './styles.css';
+import NotFound from '../NotFound/NotFound';
 
 const api_key = "14c41ab32cccfc97ee8d878a2ca4b3ac";
 
@@ -73,14 +75,16 @@ class Detalle extends Component {
 
     render() {
         let detalle = this.state.detalle;
+        console.log("Esto es el detalle", detalle);
         if (this.state.cargando) {
             return (
                 <main>
                     <Loader />
                 </main>
             );
-        }
-
+        } else if (detalle.success === false) {
+            return(<NotFound/>);
+        } 
         return (
             <main>
                 <h1>{detalle.original_title}</h1>
@@ -109,7 +113,7 @@ class Detalle extends Component {
                         </button>
                     )}
                 </section>
-                <Link to="/">Volver</Link>
+                <Link to="/" className="boton"><button>Volver</button></Link>
             </main>
         );
     }

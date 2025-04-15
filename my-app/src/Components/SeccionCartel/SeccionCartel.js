@@ -76,7 +76,10 @@ export default class SeccionCartel extends Component {
                    
                 </div>
                 <button onClick={() => this.ocultar()} >
-                    Ver descripcion
+                {" "}
+                  {this.state.mostrarContenido
+                    ? "Ocultar Descripción"
+                    : "Ver descripción"}{" "}
                 </button>
                 
                   <Link to={`/detalle/${this.state.dataPelicula.id}`}>

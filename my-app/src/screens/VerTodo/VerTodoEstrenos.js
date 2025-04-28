@@ -47,11 +47,10 @@ class VerTodoEstrenos extends Component{
 };
 
 cargarMas = () => {
-  this.setState((prevState) => ({
-    cantidadAMostrar: prevState.cantidadAMostrar + 5
-  }));
+  this.setState({
+    cantidadAMostrar: this.state.cantidadAMostrar + 5
+  });
 };
-  
 
   render(){
 
@@ -77,7 +76,7 @@ cargarMas = () => {
         {
        this.state.objetos.map((elm, idx) => {
         if (idx < this.state.cantidadAMostrar) {
-          return <VerTodas data={elm} key={idx + elm.title} />
+          return <VerTodas data={elm} key={idx + elm.title}/>
         }
         return null; 
       })

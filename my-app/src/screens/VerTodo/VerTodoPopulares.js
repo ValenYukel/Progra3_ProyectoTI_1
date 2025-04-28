@@ -42,9 +42,9 @@ class VerTodoPopulares extends Component{
 
 
 cargarMas = () => {
-  this.setState((prevState) => ({
-    cantidadAMostrar: prevState.cantidadAMostrar + 5
-  }));
+  this.setState({
+    cantidadAMostrar: this.state.cantidadAMostrar + 5
+  });
 };
   
 

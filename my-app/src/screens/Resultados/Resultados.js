@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import NotFound from '../NotFound/NotFound'
+import './styles.css'
+
 
 const api_key = "14c41ab32cccfc97ee8d878a2ca4b3ac"
 export default class Resultados extends Component {
@@ -25,9 +27,9 @@ export default class Resultados extends Component {
     return (
       <div>
         Resultados de: {this.state.busqueda}
-        <section>
+        <section className='search'>
             {this.state.resultados.map(elm => 
-            <article>
+            <article className='cont-search'>
             <h1>{elm.original_title}</h1>
             <img
               src={'https://image.tmdb.org/t/p/w300/' + elm.poster_path}

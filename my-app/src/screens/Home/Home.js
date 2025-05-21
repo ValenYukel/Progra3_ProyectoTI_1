@@ -58,7 +58,7 @@ class Home extends Component {
             <>
             <Buscador history={this.props.history} />
             <h1>Peliculas en cartelera</h1> 
-            <button className= 'boton'><Link to="/vertodo-est/estrenos">Ver todas</Link></button>
+            <button className= 'boton-home'><Link to="/vertodo-est/estrenos">Ver todas</Link></button>
 
             {
               this.state.nowPlaying.length === 0 ? (
@@ -74,7 +74,7 @@ class Home extends Component {
               )
             }
             <h1>Peliculas populares</h1> 
-            <button className= 'boton'><Link to="/vertodo-pop/populares">Ver todas</Link></button>
+            <button className= 'boton-home'><Link to="/vertodo-pop/populares">Ver todas</Link></button>
             {
               this.state.popular.length === 0 ? (
                 <h1>Cargando peliculas populares</h1>

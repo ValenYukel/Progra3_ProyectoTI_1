@@ -14,8 +14,8 @@ class VerTodoPopulares extends Component{
         objetos: [],
         backupObjetos: [],
         categoria: this.props.match.params.vertodo,
-        cargando: true
-      
+        cargando: true, 
+        page: 1     
     }
   };
 
@@ -23,30 +23,40 @@ class VerTodoPopulares extends Component{
 
 
   componentDidMount() {
-    const api_key = "14c41ab32cccfc97ee8d878a2ca4b3ac";
-  
-      fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=' + api_key)
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("DATA",data);
-          this.setState({
-            objetos: data.results,
-            backupObjetos: data.results,
-            cantidadAMostrar: 5,
-            cargando: false
-          });
-        })
-        .catch((error) => console.log(error));
-
+    this.fetchPeliculas(this.state.page);
   }
 
+  fetchPeliculas = (page) => {
+    const api_key = "14c41ab32cccfc97ee8d878a2ca4b3ac";
 
-cargarMas = () => {
-  this.setState({
-    cantidadAMostrar: this.state.cantidadAMostrar + 5
-  });
-};
-  
+    fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}&api_key=${api_key}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("DATA POPULAR", data);
+
+        this.setState({
+          objetos: [...this.state.objetos, ...data.results],
+          backupObjetos: [...this.state.backupObjetos, ...data.results],
+          cargando: false,
+          page: data.page,
+          totalPages: data.total_pages
+        });
+      })
+      .catch((error) => console.log(error));
+  };
+
+
+filtrarContenido(buscado) {
+    const contenidoFiltrado = this.state.backupObjetos.filter((elm) =>
+      elm.title.toLowerCase().includes(buscado.toLowerCase())
+    );
+    this.setState({ objetos: contenidoFiltrado });
+  }
+
+  cargarMas = () => {
+    const siguientePagina = this.state.page + 1;
+    this.fetchPeliculas(siguientePagina);
+  };
 
   render(){
 
@@ -69,26 +79,20 @@ cargarMas = () => {
         <Filtro filtro={(busqueda) => this.filtrarContenido(busqueda)} />
         </div>
         <article className="productos">
-        {
-       this.state.objetos.map((elm, idx) => {
-        if (idx < this.state.cantidadAMostrar) {
-          return <VerTodas data={elm} key={idx + elm.title} />
-        }
-        return null; 
-      })
-      }
+        {this.state.objetos.map((elm, idx) => (
+                    <VerTodas data={elm} key={idx + elm.title} />
+                  ))}
       </article>
      
-      {
-          this.state.cantidadAMostrar < this.state.objetos.length && (
-            <div style={{textAlign: 'center', margin: '50px'}}>
-              <button onClick={this.cargarMas} style={{fontSize: '18px', fontFamily: "Lato"}}>Cargar más</button>
-            </div>
-          )
-        }
-
+      {this.state.page < this.state.totalPages && (
+          <div style={{ textAlign: 'center', margin: '50px' }}>
+            <button onClick={this.cargarMas} style={{ fontSize: '18px', fontFamily: "Lato" }}>
+              Cargar más
+            </button>
+          </div>
+        )}
       </main>
-        </>
+      </>
     )
 }
 };

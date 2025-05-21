@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import OpcionesHeader from "./OpcionesHeader";
 import './styles.css';
 
@@ -32,10 +33,10 @@ function Header() {
 
     <div className="titulo">
         
-    <a href="/"><h1>Vaqueritos</h1></a>
+    <Link to="/"><h1>Vaqueritos</h1></Link>
 
 
-<a href="/"><img id="logo" src="/img/cowboy2.jpeg" alt="logo"/></a>
+<Link to="/"><img id="logo" src="/img/cowboy2.jpeg" alt="logo"/></Link>
 
 </div>
 
